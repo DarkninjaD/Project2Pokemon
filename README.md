@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# 💯 Pokemon 💯
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## User Stories:
 
-## Available Scripts
+- [ ] As a user, I want there to be a landing page at the / page that displays the message “Welcome to the world of Pokemon!” where I can click to enter.
+- [ ] As a user, i want to be directed to the /forest page that will take me to a pokemon forest by default when I enter
+- [ ] As a user, I want to see a few options of different regions (town, forest, gym, beach) that I can be redirect to so I can see pokemon in that region
+- [ ] As a user, I should see a button that brings up a pokedex with pokemon names that I have had yet to see, with the image of a question mark beside them
+- [ ] As a user, when I visit a region, I should be redirected to a page with /_region name_ and see a background image that corresponds with the type of region I’m visiting.
+- [ ] As a user, if I visit a pokemon region, I should see 3-5 pokemon whose types correspond with the region
+      As a user, if I click on a pokemon, I should be able to add it to my pokedex so I can now see its icon and click to view pokemon details within the pokedex
+- [ ] As a user, I should be able to navigate between regions using tabs at the top of the page, above the image of the region
+- [ ] As a user, I should see a pokemon logo at the top of each page so I know that I’m playing Pokemon and put me in the mood to catch them all
+- [ ] As a pokemon master, I should see a toolbar at the bottom of my screen that will have pokedex, and catch feature.
 
-In the project directory, you can run:
+## Planning (region, types):
 
-### `npm start`
+- [ ] Forest Region: Grass, Bug, Flying, Poison, Fairy?
+- [ ] Town Region: Normal, Electric
+- [ ] Water Region: Water, Ice, Dragon?
+- [ ] Rock Region: Rock, fighting, ground
+- [ ] Gym: Machoke/Machampx20
+- [ ] Spooky: Ghost, psychic, Dark
+- [ ] Volcano Region: Fire, Ground, Steel
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+(any other ideas put down here)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Routes
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Landing Page - “/”
+- Locations - “/location/:region”
+- Pokedex - “/pokedex”
