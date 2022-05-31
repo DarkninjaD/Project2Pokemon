@@ -65,9 +65,9 @@ const ForestRegion = () => {
                       style={{
                         position: "relative",
                         left: `${Math.floor(Math.random() * 200)}px`,
-                        up: `${Math.floor(Math.random() * 200)}px`,
+                        top: `${Math.floor(Math.random() * 200)}px`,
                         right: `${Math.floor(Math.random() * 200)}px`,
-                        down: `${Math.floor(Math.random() * 200)}px`,
+                        bottom: `${Math.floor(Math.random() * 200)}px`,
                       }}
                     />
                   ) : (
