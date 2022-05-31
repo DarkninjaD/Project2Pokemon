@@ -4,7 +4,7 @@ const LandingPage = ({ isLoading }) => {
       <img src=""></img>
       <p>Pokemon Time</p>
       {isLoading ? (
-        <button>Loading, Please Wait</button>
+        <button>Hey</button>
       ) : (
         <button>Enter</button>
       )}
