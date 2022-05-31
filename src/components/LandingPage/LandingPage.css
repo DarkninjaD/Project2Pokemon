@@ -1,0 +1,28 @@
+.background {
+  position: absolute;
+  min-width: 100vw;
+  min-height: 100vh;
+  z-index: -1;
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.enter-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 80px;
+  width: 300px;
+}
+
+.loading-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 80px;
+  width: 300px;
+}
