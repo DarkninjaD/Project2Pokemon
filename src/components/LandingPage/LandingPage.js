@@ -16,13 +16,11 @@ const LandingPage = ({ isLoading }) => {
         alt="background-forest"
       />
       <img className="logo" src={Pokemon_logo} alt='Pokémon Logo' height={400}/>
-      <p>Pokémon Timé</p>
       {isLoading ? (
         <button className="loading-button" data-testid="enter button" disabled>Loading, Pléase Wait</button>
       ) : (
         <>
-          <button className="enter-button" data-testid="enter button" onClick = {() => navigate("/forest")}>Let me get some of those pokemon</button>
-          <button className="enter-button" data-testid="enter button" onClick = {() => navigate("/location/forest")}>Test Dynamic Route</button>
+          <button className="enter-button" data-testid="enter button" onClick = {() => navigate("/location/forest")}>Énter</button>
         </>
       )}
     </>

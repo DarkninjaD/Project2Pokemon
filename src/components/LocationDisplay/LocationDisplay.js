@@ -7,16 +7,27 @@ import NavBar from '../NavBar/NavBar.js'
 import ForestBackground from "../../assets/Forest-Background.svg";
 import { LocationContainer } from "../LocationContainer/LocationContainer";
 import { useNavigate, useParams } from 'react-router-dom';
+import './LocationDisplay.css'
 
 const LocationDisplay = ({ isLoading }) => {
   const navigate = useNavigate()
-  const { pokemon, sortedPokemon } = useContext(PokeContext);
+  const { pokemon, setPokemon, sortedPokemon, caughtPokemon, setCaughtPokemon } = useContext(PokeContext);
+
+  const [tempPokemon, setTempPokemon] = useState({
+    sprites: {
+      front_default: ""
+    }
+  });
 
   let locationName = useParams().name;
 
-  const getNewPokemon = () => {
-    let randomIndex = Math.floor(Math.random() * (sortedPokemon[locationName].length - 0 + 1) + 0)
-    setTempPokemon(sortedPokemon[locationName][randomIndex])
+  const getNewPokemon = async () => {
+    let randomIndex = Math.floor(Math.random() * (sortedPokemon[locationName].length))
+
+    let test = document.getElementsByClassName('pokemonDisplay')[0]
+    test.style.top = `${Math.floor(Math.random() * (80 - 35 + 1) + 35)}vh`
+    test.style.left = `${Math.floor(Math.random() * (65 - 35 + 1) + 35)}vw`
+    await setTempPokemon(sortedPokemon[locationName][randomIndex])
   }
 
   useEffect(() => {
@@ -24,25 +35,39 @@ const LocationDisplay = ({ isLoading }) => {
       navigate('/')
     }
     getNewPokemon()
-  }, [])
+  }, [locationName])
 
-  const [tempPokemon, setTempPokemon] = useState({
-    sprites: {
-      front_default:""
-    }
-  });
+  // console.log(`/assets/${locationName}-bg.png`)
 
+  const clickHandler = (e) => {
+    console.log(e.id);
+    //tempPokemon is current pokemon, find in the pokemon array
+    let tempArray = JSON.parse(JSON.stringify(pokemon));
+    tempArray.forEach(object => {
+      if(object.name === e.id){
+          object.isCaught = true
+      }
+    });
+    setPokemon(tempArray)
+  }
 
-  console.log(tempPokemon)
   return (
     <div className="base-grid">
       <img
         className="background"
-        src={`/assets/${locationName}-bg.svg`}
+        src={`/assets/${locationName}-bg.png`}
         alt={`background-${locationName}`}
       />
       {/* Random Pokemon from this location */}
-      <img src={tempPokemon.sprites.front_default} onClick={() => {getNewPokemon()}}/>
+      <img id={tempPokemon.name} className="pokemonDisplay" src={tempPokemon.sprites.front_default} onClick={(e) => {
+        clickHandler(e.target)
+        // console.log(pokemon.indexOf(tempPokemon))
+        // if (!caughtPokemon.includes(tempPokemon)) {
+        //   setCaughtPokemon([...caughtPokemon, tempPokemon])
+        // }
+
+        getNewPokemon()
+      }} />
       <LocationContainer />
       <PokeDexButton className="pokedex-button" />
       <NavBar />
@@ -50,7 +75,7 @@ const LocationDisplay = ({ isLoading }) => {
   );
 }
 
-export { LocationDisplay } ;
+export { LocationDisplay };
 
   // console.log('Current Location:', locationName)
   // console.log('Pokemon at this Location:', sortedPokemon[locationName])

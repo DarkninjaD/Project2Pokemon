@@ -9,17 +9,18 @@ import "./App.css";
 //url: https://pokeapi.co/api/v2/pokemon/?limit=151
 
 function App() {
-  let townPokemon, rockPokemon, spookyPokemon, waterPokemon, volcanoPokemon
   const [isLoading, setIsLoading] = useState(true);
   const [pokemon, setPokemon] = useState([]);
   const [sortedPokemon, setSortedPokemon] = useState({
     forest : [],
     town : [],
     water: [],
+    gym: [],
     rock : [],
     spooky : [],
     volcano : []
   })
+  const [caughtPokemon, setCaughtPokemon] = useState([]);
   const changePokemon = (param) => {
     setPokemon(param);
   };
@@ -39,6 +40,9 @@ function App() {
       water: data.filter ((obj) => {
         let types = obj.types.map((x) => x.type.name)
         return types.includes("water") || types.includes("ice") || types.includes("dragon")
+      }),
+      gym: data.filter ((obj) => {
+        return obj.name === 'machop' || obj.name === 'machoke' || obj.name === 'machamp'
       }),
       rock : data.filter((obj) => {
         let types = obj.types.map((x) => x.type.name)
@@ -66,6 +70,13 @@ function App() {
           )
         )
       )
+      .then((data) => {
+        data.forEach ((elem) => {
+          elem.isCaught = false
+        })
+
+        return data
+      })
       .then((results) => {
         setPokemon(results);
         sortPokemon(results);
@@ -75,15 +86,14 @@ function App() {
 
   console.log(pokemon)
 
-  const value = [pokemon, changePokemon];
-
   return (
-    <PokeContext.Provider value={{pokemon, sortedPokemon}}>
+    <PokeContext.Provider value={{pokemon, setPokemon, sortedPokemon, caughtPokemon, setCaughtPokemon}}>
       <Router>
         <Routes>
-          <Route path = '/' element = {<LandingPage isLoading={isLoading}/>}/>
+          <Route path = '/' element = {<LandingPage isLoading={isLoading}/>} />
           <Route path = '/forest' element = {<ForestRegion/>}/>
-          <Route path = '/location/:name' element={<LocationDisplay isLoading={isLoading}/>}/>
+          <Route path = '/location/:name' element={<LocationDisplay isLoading={isLoading}/>} />
+          <Route path = '/*' element = {<LandingPage isLoading={isLoading} />} />
           {/* <Route path = '/location/:name' element={<{className'Region'}/>} regionPokemon={sortedPokemon[{}]}/>}/> */}
           {/* <Route path = '/location/:name' element={<{}} regionPokemon={sortedPokemon[{}]}/>}/> */}
         </Routes>
@@ -93,40 +103,3 @@ function App() {
 }
 
 export default App;
-
-/*
- //just sort the pokemon
-  const sortPokemon = () =>{
-    //assumes that the context will have a forest pokemon, town pokemon, rock pokemon etc arrays with the pokemon of the respective typees
-    setForestPokemon(pokemon.filter ((obj) => {
-      let types = obj.types.map((x) => x.type.name)
-      return types.includes("grass") || types.includes("bug") || types.includes("flying") || types.includes("fairy") || types.includes("poison")
-    }))
-
-    townPokemon = pokemon.filter ((obj) => {
-      let types = obj.types.map((x) => x.type.name)
-      return types.includes("normal") || types.includes("electric")
-    })
-
-    waterPokemon = pokemon.filter ((obj) => {
-      let types = obj.types.map((x) => x.type.name)
-      return types.includes("water") || types.includes("ice") || types.includes("dragon")
-    })
-
-    rockPokemon = pokemon.filter ((obj) => {
-      let types = obj.types.map((x) => x.type.name)
-      return types.includes("rock") || types.includes("fighting") || types.includes("ground")
-    })
-
-    spookyPokemon  = pokemon.filter ((obj) => {
-      let types = obj.types.map((x) => x.type.name)
-      return types.includes("ghost") || types.includes("psychic") || types.includes("darj")
-    })
-
-    volcanoPokemon  = pokemon.filter ((obj) => {
-      let types = obj.types.map((x) => x.type.name)
-      return types.includes("fire") || types.includes("ground") || types.includes("steel")
-    })
-
-  }
-*/
