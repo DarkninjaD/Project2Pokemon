@@ -2,27 +2,83 @@ import mokePoke from "../../mock/pokeExample";
 import { PokeDexButton } from "../ToolBar/PokeDexButton";
 import "./ForestRegion.css";
 import { LocationContainer } from "../LocationContainer/LocationContainer";
-import { useState } from "react";
+import React, { useState } from "react";
 import mokeImg from "../../mock/mockImage.png";
+import { useContext } from "react";
+import styled from "styled-components";
+
+// import { PokeContext } from "../PokeContext"
 
 const ForestRegion = () => {
-  const makediv = 24;
-  console.log(mokePoke);
-  console.log(mokePoke[0].sprites);
-  console.log(mokePoke[0].sprites.front_default);
+  // const { pokemon, sortedPokemon } = useContext(PokeContext);
+  // sortedPokemon.forest
+
+  const randomNumber = () => {
+    // 3 to 5 random positions on page?
+    return Math.floor(Math.random() * (6 - 3) + 3);
+  };
+
+  //Create a random pokemon array with length of the random number
+  //Pokemon are pulled from forest pokemon
+  const genRandomPokemonArray = (forestPokemon) => {
+    const randNum = randomNumber();
+    const randomPokemonArray = [];
+    // get random item
+    for (var i = 0; i <= randNum; i++) {
+      const randomIndex = Math.floor(Math.random() * forestPokemon.length);
+      randomPokemonArray.push(forestPokemon[randomIndex]);
+    }
+    return randomPokemonArray;
+  };
+
+  const randPokemonArray = genRandomPokemonArray(mokePoke); //
+  // [50] => [5]
+  // [23] <= [5]
+  // makediv => empy24 => [emp, index,emp, index]
+
+  const makediv = new Array(24);
+
+  const insertRandomPokemon = (makediv, randPokemonArray) => {
+    for (var i = 0; i <= randPokemonArray.length; i) {
+      const hodar = Math.floor(Math.random() * 2);
+      if (hodar) {
+        const randomindex = Math.floor(Math.random() * makediv.length - 1);
+        makediv[randomindex] = randPokemonArray[i];
+        i++;
+      }
+    }
+    return makediv;
+  };
+
   return (
-    <body>
+    <body data-testid="background-forest">
       <div className="row">
         <div className="base-grid">
-          {[...Array(makediv)].map((elm, index) => {
-            return (
-              <div className="gridContainer">
-                <img src={mokeImg} alt="temp" />
-              </div>
-            );
-          })}
+          {[...insertRandomPokemon(makediv, randPokemonArray)].map(
+            (elm, index) => {
+              return (
+                <div className="gridContainer">
+                  {elm !== undefined ? (
+                    <img
+                      src={elm.sprites.front_default}
+                      alt="temp"
+                      style={{
+                        position: "relative",
+                        left: `${Math.floor(Math.random() * 200)}px`,
+                        up: `${Math.floor(Math.random() * 200)}px`,
+                        right: `${Math.floor(Math.random() * 200)}px`,
+                        down: `${Math.floor(Math.random() * 200)}px`,
+                      }}
+                    />
+                  ) : (
+                    <></>
+                  )}
+                </div>
+              );
+            }
+          )}
         </div>
-        <div class="text-center">
+        <div className="text-center">
           <PokeDexButton className="pokedex-button" />
         </div>
       </div>
