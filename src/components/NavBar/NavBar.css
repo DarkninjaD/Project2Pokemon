@@ -1,27 +1,31 @@
 .navigation {
-    position:relative;
-    background-color: beige;
-    height: 90%;
-    width: 12%;
-    border: 5px solid black;
-    border-radius: 15px;
-    margin: 10px
+  position: relative;
+  background-color: beige;
+  /* height: 90%; */
+  /* width: 12%; */
+  border: 5px solid black;
+  border-radius: 15px;
+  margin: 10px;
 }
 
-li{
-    color: black;
-    textDecoration: 'none'
+li {
+  color: black;
+  textdecoration: "none";
 }
 
 a {
-    color: black;
-  }
-
-li:hover{
-    transform: scale(1.1);
+  color: black;
 }
 
-ul{
-    list-style:none;
-    font-family:Helvetica
+li:hover {
+  transform: scale(1.1);
+}
+
+ul {
+  list-style: none;
+  font-family: Helvetica;
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+  padding-right: 30px;
 }

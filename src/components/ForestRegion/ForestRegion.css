@@ -29,12 +29,16 @@ img {
 }
 
 .locations-box {
-  width: 6vw;
+  width: 17vw;
   display: flex;
   align-items: center;
 }
 
+/* //TODO - find a better fix */
 body {
+  background-image: url(../../assets/Forest-Background.svg);
+}
+.body {
   background-image: url(../../assets/Forest-Background.svg);
   display: flex;
   height: 100vh;

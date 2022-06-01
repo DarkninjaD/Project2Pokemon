@@ -1,12 +1,12 @@
+import React from "react";
 import "./LandingPage.css";
-import BackgroundImage from '../../assets/city.jpg'
+import BackgroundImage from "../../assets/city.jpg";
 // import ForestBackground from '../../assets/Forest-Background.svg'
-import Pokemon_logo from '../../assets/Pokemon-Logo.png'
-import { useNavigate } from 'react-router-dom'
-
+import Pokemon_logo from "../../assets/Pokemon-Logo.png";
+import { useNavigate } from "react-router-dom";
 
 const LandingPage = ({ isLoading }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <>
@@ -15,12 +15,25 @@ const LandingPage = ({ isLoading }) => {
         src={BackgroundImage}
         alt="background-forest"
       />
-      <img className="logo" src={Pokemon_logo} alt='Pokémon Logo' height={400}/>
+      <img
+        className="logo"
+        src={Pokemon_logo}
+        alt="Pokémon Logo"
+        height={400}
+      />
       {isLoading ? (
-        <button className="loading-button" data-testid="enter button" disabled>Loading, Pléase Wait</button>
+        <button className="loading-button" data-testid="enter button" disabled>
+          Loading, Pléase Wait
+        </button>
       ) : (
         <>
-          <button className="enter-button" data-testid="enter button" onClick = {() => navigate("/location/forest")}>Énter</button>
+          <button
+            className="enter-button"
+            data-testid="enter button"
+            onClick={() => navigate("/forest")}
+          >
+            Énter
+          </button>
         </>
       )}
     </>

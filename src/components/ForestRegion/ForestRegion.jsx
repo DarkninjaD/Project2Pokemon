@@ -1,22 +1,15 @@
-import mokePoke from "../../mock/pokeExample";
+// import mokePoke from "../../mock/pokeExample";
+// import mokeImg from "../../mock/mockImage.png";
 import { PokeDexButton } from "../ToolBar/PokeDexButton";
-import { PokeContext } from "../PokeContext"
-import { useContext } from 'react'
-import NavBar from '../NavBar/NavBar.js'
+import { PokeContext } from "../PokeContext";
 
-import ForestBackground from "../../assets/Forest-Background.svg";
 import "./ForestRegion.css";
-import { LocationContainer } from "../LocationContainer/LocationContainer";
-import React, { useState } from "react";
-import mokeImg from "../../mock/mockImage.png";
-import { useContext } from "react";
-import styled from "styled-components";
-
-// import { PokeContext } from "../PokeContext"
+import NavBar from "../NavBar/NavBar.js";
+import React, { useState, useContext } from "react";
 
 const ForestRegion = () => {
-  // const { pokemon, sortedPokemon } = useContext(PokeContext);
-  // sortedPokemon.forest
+  const { pokemon, sortedPokemon, setCaughtPokemon, setPokemon } =
+    useContext(PokeContext);
 
   const randomNumber = () => {
     // 3 to 5 random positions on page?
@@ -36,7 +29,7 @@ const ForestRegion = () => {
     return randomPokemonArray;
   };
 
-  const randPokemonArray = genRandomPokemonArray(mokePoke); //
+  const randPokemonArray = genRandomPokemonArray(sortedPokemon.forest); //
   // [50] => [5]
   // [23] <= [5]
   // makediv => empy24 => [emp, index,emp, index]
@@ -55,24 +48,38 @@ const ForestRegion = () => {
     return makediv;
   };
 
+  const clickHandler = (e) => {
+    //tempPokemon is current pokemon, find in the pokemon array
+    let tempArray = JSON.parse(JSON.stringify(pokemon));
+    tempArray.forEach((object) => {
+      if (object.name === e.id) {
+        object.isCaught = true;
+      }
+    });
+    setPokemon(tempArray);
+  };
+
   return (
-    <body data-testid="background-forest">
+    <div className="body" data-testid="background-forest">
       <div className="row">
         <div className="base-grid">
           {[...insertRandomPokemon(makediv, randPokemonArray)].map(
             (elm, index) => {
               return (
-                <div className="gridContainer">
+                <div className="gridContainer" key={index}>
                   {elm !== undefined ? (
                     <img
+                      id={elm.name}
                       src={elm.sprites.front_default}
                       alt="temp"
+                      onClick={(event) => {
+                        event.preventDefault();
+                        clickHandler(event.target);
+                      }}
                       style={{
                         position: "relative",
-                        left: `${Math.floor(Math.random() * 200)}px`,
-                        top: `${Math.floor(Math.random() * 200)}px`,
-                        right: `${Math.floor(Math.random() * 200)}px`,
-                        bottom: `${Math.floor(Math.random() * 200)}px`,
+                        right: `${Math.floor(Math.random() * 100)}px`,
+                        bottom: `${Math.floor(Math.random() * 100)}px`,
                       }}
                     />
                   ) : (
@@ -88,9 +95,9 @@ const ForestRegion = () => {
         </div>
       </div>
       <div className="locations-box">
-        <LocationContainer />
+        <NavBar />
       </div>
-    </body>
+    </div>
   );
 };
 export { ForestRegion };
