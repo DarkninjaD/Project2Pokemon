@@ -90,7 +90,7 @@ const RockRegion = () => {
           )}
         </div>
         <div className="text-center">
-          <PokeDexButton className="pokedex-button" />
+          <PokeDexButton className="pokedex-button" locationName="rock" />
         </div>
       </div>
       <div className="locations-box">

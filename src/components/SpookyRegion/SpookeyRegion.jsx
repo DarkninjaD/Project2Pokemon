@@ -90,7 +90,7 @@ const SpookyRegion = () => {
           )}
         </div>
         <div className="text-center">
-          <PokeDexButton className="pokedex-button" />
+          <PokeDexButton className="pokedex-button" locationName="spooky" />
         </div>
       </div>
       <div className="locations-box">

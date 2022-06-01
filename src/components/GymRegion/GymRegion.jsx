@@ -90,7 +90,7 @@ const GymRegion = () => {
           )}
         </div>
         <div className="text-center">
-          <PokeDexButton className="pokedex-button" />
+          <PokeDexButton className="pokedex-button" locationName="gym" />
         </div>
       </div>
       <div className="locations-box">

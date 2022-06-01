@@ -90,7 +90,7 @@ const WaterRegion = () => {
           )}
         </div>
         <div className="text-center">
-          <PokeDexButton className="pokedex-button" />
+          <PokeDexButton className="pokedex-button" locationName="water" />
         </div>
       </div>
       <div className="locations-box">
