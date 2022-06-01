@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { PokeContext } from "./components/PokeContext";
+import { Pokedex } from "./components/Pokedex/Pokedex";
 import { LandingPage } from "./components/LandingPage/LandingPage";
 import { ForestRegion } from "./components/ForestRegion/ForestRegion";
 import { RockRegion } from "./components/RockRegion/RockRegion";
@@ -134,6 +135,7 @@ function App() {
           <Route path="/volcano" element={<VolcanoRegion />} />
           <Route path="/water" element={<WaterRegion />} />
           <Route path="/gym" element={<GymRegion />} />
+          <Route path = '/pokedex' element = {<Pokedex pokemonList={pokemon}/>} />
           <Route
             path="/location/:name"
             element={<LocationDisplay isLoading={isLoading} />}

@@ -1,0 +1,21 @@
+.pokemon-thumbnail {
+  padding-top: 0.5vw;
+  padding-bottom: 0.5vw;
+  background-color: #22262e;
+  border-radius: 15px;
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 1);
+}
+
+.pokemon-thumbnail-container {
+  padding: 2vw;
+  box-shadow: 1px;
+}
+
+.pokemon-thumbnail:hover {
+  cursor: pointer;
+}
+
+.pokemon-name{
+  font-size: 24px;
+  color: white;
+}

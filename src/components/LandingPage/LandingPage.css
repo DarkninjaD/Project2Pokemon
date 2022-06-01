@@ -6,9 +6,10 @@
 }
 
 .logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  height: 250px;
+  width: 600px;
 }
 
 .enter-button {

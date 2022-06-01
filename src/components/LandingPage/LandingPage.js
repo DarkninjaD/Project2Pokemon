@@ -13,7 +13,7 @@ const LandingPage = ({ isLoading }) => {
       <img
         className="background"
         src={BackgroundImage}
-        alt="background-forest"
+        alt="background-landing"
       />
       <img
         className="logo"

@@ -53,7 +53,9 @@ const LocationDisplay = ({ isLoading }) => {
   };
 
   return (
-    <div className="base-grid">
+    <>
+      <div className="base-grid">
+      </div>
       <img
         className="background"
         src={`/assets/${locationName}-bg.png`}
@@ -76,9 +78,9 @@ const LocationDisplay = ({ isLoading }) => {
         }}
       />
       <LocationContainer />
-      <PokeDexButton className="pokedex-button" />
+      <PokeDexButton locationName={locationName} />
       <NavBar />
-    </div>
+    </>
   );
 };
 

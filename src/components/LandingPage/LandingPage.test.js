@@ -1,20 +1,21 @@
-import {render, screen} from  "@testing-library/react"
+import React from "react";
+import { render, screen } from  "@testing-library/react"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { LandingPage } from './LandingPage.js'
 
 describe ("Test for Landing Page", ()=>{
     it ("should render a default background", ()=>{
-        render(<LandingPage />);
-        expect(screen.getByAltText("background-forest")).toBeInTheDocument()
+        render(<Router><LandingPage /></Router>);
+        expect(screen.getByAltText("background-landing")).toBeInTheDocument()
     })
+
     it ("should render a pokemon logo", ()=>{
-        render(<LandingPage />);
-        expect(screen.getByAltText("pokemon-logo")).toBeInTheDocument()
+        render(<Router><LandingPage /></Router>);
+        expect(screen.getByAltText("Pokémon Logo")).toBeInTheDocument()
     })
-    it ("should render a pokemon logo", ()=>{
-        render(<LandingPage />);
-        expect(screen.getByText("Pokemon Time")).toBeInTheDocument()
-    })
-    it ("should have an enter button, "()=>{
-        render(<LandingPage />)
+
+      it ("should have an enter button", ()=>{
+        render(<Router><LandingPage /></Router>)
         expect(screen.getByTestId("enter button")).toBeInTheDocument()
     })
 })

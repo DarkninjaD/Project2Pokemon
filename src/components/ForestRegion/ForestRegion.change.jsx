@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { ForestRegion } from "./ForestRegion";
+import React from "react";
 
 describe("ForestRegion", () => {
   it("should load our forest background", () => {
