@@ -1,13 +1,10 @@
 import mokePoke from "../../mock/pokeExample";
 import { PokeDexButton } from "../ToolBar/PokeDexButton";
-<<<<<<< HEAD
 import { PokeContext } from "../PokeContext"
 import { useContext } from 'react'
 import NavBar from '../NavBar/NavBar.js'
 
 import ForestBackground from "../../assets/Forest-Background.svg";
-=======
->>>>>>> pikachu-team
 import "./ForestRegion.css";
 import { LocationContainer } from "../LocationContainer/LocationContainer";
 import React, { useState } from "react";
@@ -18,23 +15,6 @@ import styled from "styled-components";
 // import { PokeContext } from "../PokeContext"
 
 const ForestRegion = () => {
-<<<<<<< HEAD
-  const { pokemon, sortedPokemon } = useContext(PokeContext);
-
-  console.log(sortedPokemon)
-
-  return (
-    <div className="base-grid">
-      <img
-        className="background"
-        src="/assets/Forest-Background.svg"
-        alt="background-forest"
-      />
-      <LocationContainer />
-      <PokeDexButton className="pokedex-button" />
-      <NavBar />
-    </div>
-=======
   // const { pokemon, sortedPokemon } = useContext(PokeContext);
   // sortedPokemon.forest
 
@@ -111,7 +91,6 @@ const ForestRegion = () => {
         <LocationContainer />
       </div>
     </body>
->>>>>>> pikachu-team
   );
 };
 export { ForestRegion };
