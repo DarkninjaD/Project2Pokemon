@@ -3,6 +3,7 @@ import BackgroundImage from '../../assets/city.jpg'
 // import ForestBackground from '../../assets/Forest-Background.svg'
 import Pokemon_logo from '../../assets/Pokemon-Logo.png'
 import { useNavigate } from 'react-router-dom'
+import React from "react";
 
 
 const LandingPage = ({ isLoading }) => {
@@ -13,7 +14,7 @@ const LandingPage = ({ isLoading }) => {
       <img
         className="background"
         src={BackgroundImage}
-        alt="background-forest"
+        alt="background-landing"
       />
       <img className="logo" src={Pokemon_logo} alt='Pokémon Logo' height={400}/>
       {isLoading ? (

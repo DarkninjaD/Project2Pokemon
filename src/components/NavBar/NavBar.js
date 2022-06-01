@@ -1,10 +1,11 @@
+import React, { useState, useEffect, useContext } from 'react'
 import {Link} from 'react-router-dom'
 import './NavBar.css'
 
 const NavBar = () =>{
 
     return (
-        <div className = "navigation">
+        <div className = "navigation" data-testid = "navBarTest">
             <ul className = "nav-list">
                 <li><Link className = "forest" to="/location/forest" style={{ textDecoration: 'none' }} >Forest Region</Link></li>
                 <li><Link className = "town" to="/location/town" style={{ textDecoration: 'none' }}>Town Region</Link></li>

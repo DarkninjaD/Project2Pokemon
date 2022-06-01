@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom";
 import { PokeContext } from "./components/PokeContext";
+import { Pokedex } from "./components/Pokedex/Pokedex";
 import { LandingPage } from "./components/LandingPage/LandingPage";
 import { ForestRegion } from "./components/ForestRegion/ForestRegion"
 import { LocationDisplay } from "./components/LocationDisplay/LocationDisplay"
@@ -91,8 +92,9 @@ function App() {
       <Router>
         <Routes>
           <Route path = '/' element = {<LandingPage isLoading={isLoading}/>} />
-          <Route path = '/forest' element = {<ForestRegion/>}/>
+          <Route path = '/forest' element = {<ForestRegion />} />
           <Route path = '/location/:name' element={<LocationDisplay isLoading={isLoading}/>} />
+          <Route path = '/pokedex' element = {<Pokedex pokemonList={pokemon}/>} />
           <Route path = '/*' element = {<LandingPage isLoading={isLoading} />} />
           {/* <Route path = '/location/:name' element={<{className'Region'}/>} regionPokemon={sortedPokemon[{}]}/>}/> */}
           {/* <Route path = '/location/:name' element={<{}} regionPokemon={sortedPokemon[{}]}/>}/> */}

@@ -9,7 +9,6 @@ import "./ForestRegion.css";
 import { LocationContainer } from "../LocationContainer/LocationContainer";
 import React, { useState } from "react";
 import mokeImg from "../../mock/mockImage.png";
-import { useContext } from "react";
 import styled from "styled-components";
 
 // import { PokeContext } from "../PokeContext"

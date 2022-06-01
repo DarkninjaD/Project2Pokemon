@@ -1,8 +1,8 @@
 .navigation {
     position:relative;
     background-color: beige;
-    height: 90%;
-    width: 12%;
+    height: 40%;
+    width: 70%;
     border: 5px solid black;
     border-radius: 15px;
     margin: 10px
@@ -10,7 +10,8 @@
 
 li{
     color: black;
-    textDecoration: 'none'
+    textDecoration: 'none';
+    padding:3px;
 }
 
 a {

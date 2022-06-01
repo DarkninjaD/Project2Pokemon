@@ -1,9 +1,8 @@
 import { PokeDexButton } from "../ToolBar/PokeDexButton";
 import { PokeContext } from "../PokeContext"
-import { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 
 import NavBar from '../NavBar/NavBar.js'
-
 import ForestBackground from "../../assets/Forest-Background.svg";
 import { LocationContainer } from "../LocationContainer/LocationContainer";
 import { useNavigate, useParams } from 'react-router-dom';
@@ -25,8 +24,10 @@ const LocationDisplay = ({ isLoading }) => {
     let randomIndex = Math.floor(Math.random() * (sortedPokemon[locationName].length))
 
     let test = document.getElementsByClassName('pokemonDisplay')[0]
-    test.style.top = `${Math.floor(Math.random() * (80 - 35 + 1) + 35)}vh`
-    test.style.left = `${Math.floor(Math.random() * (65 - 35 + 1) + 35)}vw`
+    test.style.top = `50vh`
+    test.style.left = `50vw`
+    // test.style.top = `${Math.floor(Math.random() * (80 - 35 + 1) + 35)}vh`
+    // test.style.left = `${Math.floor(Math.random() * (65 - 35 + 1) + 35)}vw`
     await setTempPokemon(sortedPokemon[locationName][randomIndex])
   }
 
@@ -49,10 +50,13 @@ const LocationDisplay = ({ isLoading }) => {
       }
     });
     setPokemon(tempArray)
+    e.hidden = false;
   }
 
   return (
-    <div className="base-grid">
+    <>
+      <div className="base-grid">
+      </div>
       <img
         className="background"
         src={`/assets/${locationName}-bg.png`}
@@ -60,18 +64,15 @@ const LocationDisplay = ({ isLoading }) => {
       />
       {/* Random Pokemon from this location */}
       <img id={tempPokemon.name} className="pokemonDisplay" src={tempPokemon.sprites.front_default} onClick={(e) => {
+        e.target.disabled=true;
         clickHandler(e.target)
-        // console.log(pokemon.indexOf(tempPokemon))
-        // if (!caughtPokemon.includes(tempPokemon)) {
-        //   setCaughtPokemon([...caughtPokemon, tempPokemon])
-        // }
 
         getNewPokemon()
       }} />
       <LocationContainer />
-      <PokeDexButton className="pokedex-button" />
+      <PokeDexButton locationName={locationName} />
       <NavBar />
-    </div>
+    </>
   );
 }
 
