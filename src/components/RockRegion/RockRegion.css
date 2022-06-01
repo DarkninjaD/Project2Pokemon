@@ -36,10 +36,10 @@ img {
 
 /* //TODO - find a better fix */
 /* body {
-  background-image: url(/assets/forest-bg.png);
+  background-image: url(/assets/rock-bg.png);
 } */
-.bg-forest {
-  background-image: url(/assets/forest-bg.svg);
+.bg-rock {
+  background-image: url(/assets/rock-bg.png);
 }
 .body {
   display: flex;

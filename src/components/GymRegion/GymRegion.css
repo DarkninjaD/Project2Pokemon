@@ -38,8 +38,8 @@ img {
 /* body {
   background-image: url(/assets/forest-bg.png);
 } */
-.bg-forest {
-  background-image: url(/assets/forest-bg.svg);
+.bg-gym {
+  background-image: url(/assets/gym-bg.png);
 }
 .body {
   display: flex;

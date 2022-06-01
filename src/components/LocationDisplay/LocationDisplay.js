@@ -4,20 +4,13 @@ import React, { useState, useEffect, useContext } from "react";
 
 import NavBar from "../NavBar/NavBar.js";
 
-import ForestBackground from "../../assets/Forest-Background.svg";
 import { LocationContainer } from "../LocationContainer/LocationContainer";
 import { useNavigate, useParams } from "react-router-dom";
 import "./LocationDisplay.css";
 
 const LocationDisplay = ({ isLoading }) => {
   const navigate = useNavigate();
-  const {
-    pokemon,
-    setPokemon,
-    sortedPokemon,
-    caughtPokemon,
-    setCaughtPokemon,
-  } = useContext(PokeContext);
+  const { pokemon, setPokemon, sortedPokemon } = useContext(PokeContext);
 
   const [tempPokemon, setTempPokemon] = useState({
     sprites: {
@@ -71,6 +64,7 @@ const LocationDisplay = ({ isLoading }) => {
         id={tempPokemon.name}
         className="pokemonDisplay"
         src={tempPokemon.sprites.front_default}
+        alt={tempPokemon.name}
         onClick={(e) => {
           clickHandler(e.target);
           // console.log(pokemon.indexOf(tempPokemon))

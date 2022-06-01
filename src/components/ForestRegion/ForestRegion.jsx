@@ -5,11 +5,10 @@ import { PokeContext } from "../PokeContext";
 
 import "./ForestRegion.css";
 import NavBar from "../NavBar/NavBar.js";
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 
 const ForestRegion = () => {
-  const { pokemon, sortedPokemon, setCaughtPokemon, setPokemon } =
-    useContext(PokeContext);
+  const { pokemon, sortedPokemon, setPokemon } = useContext(PokeContext);
 
   const randomNumber = () => {
     // 3 to 5 random positions on page?
@@ -60,7 +59,7 @@ const ForestRegion = () => {
   };
 
   return (
-    <div className="body" data-testid="background-forest">
+    <div className="body bg-forest" data-testid="background-forest">
       <div className="row">
         <div className="base-grid">
           {[...insertRandomPokemon(makediv, randPokemonArray)].map(

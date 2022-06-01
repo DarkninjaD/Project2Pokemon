@@ -1,13 +1,15 @@
-import React, { useState, useEffect, useContext } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useParams,
-} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { PokeContext } from "./components/PokeContext";
 import { LandingPage } from "./components/LandingPage/LandingPage";
 import { ForestRegion } from "./components/ForestRegion/ForestRegion";
+import { RockRegion } from "./components/RockRegion/RockRegion";
+import { SpookyRegion } from "./components/SpookyRegion/SpookeyRegion";
+import { TownRegion } from "./components/TownRegion/TownRegion";
+import { VolcanoRegion } from "./components/VolcanoRegion/VolcanoRegion";
+import { WaterRegion } from "./components/WaterRegion/WaterRegion";
+import { GymRegion } from "./components/GymRegion/GymRegion";
+
 import { LocationDisplay } from "./components/LocationDisplay/LocationDisplay";
 import "./App.css";
 
@@ -26,9 +28,6 @@ function App() {
     volcano: [],
   });
   const [caughtPokemon, setCaughtPokemon] = useState([]);
-  const changePokemon = (param) => {
-    setPokemon(param);
-  };
 
   const sortPokemon = (data) => {
     // takes in a list of pokemon and sorts by expected location, based on their types
@@ -128,7 +127,13 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage isLoading={isLoading} />} />
+          <Route path="/rock" element={<RockRegion />} />
           <Route path="/forest" element={<ForestRegion />} />
+          <Route path="/spooky" element={<SpookyRegion />} />
+          <Route path="/town" element={<TownRegion />} />
+          <Route path="/volcano" element={<VolcanoRegion />} />
+          <Route path="/water" element={<WaterRegion />} />
+          <Route path="/gym" element={<GymRegion />} />
           <Route
             path="/location/:name"
             element={<LocationDisplay isLoading={isLoading} />}
