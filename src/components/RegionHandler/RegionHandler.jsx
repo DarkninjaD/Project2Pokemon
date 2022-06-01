@@ -3,12 +3,14 @@
 import { PokeDexButton } from "../ToolBar/PokeDexButton";
 import { PokeContext } from "../PokeContext";
 
-import "./SpookyRegion.css";
+import "./RegionHandler.css";
 import NavBar from "../NavBar/NavBar.js";
 import React, { useContext } from "react";
+import { useParams } from "react-router-dom";
 
-const SpookyRegion = () => {
+const RegionHandler = () => {
   const { pokemon, sortedPokemon, setPokemon } = useContext(PokeContext);
+  const currentRegion = useParams().name;
 
   const randomNumber = () => {
     // 3 to 5 random positions on page?
@@ -16,19 +18,23 @@ const SpookyRegion = () => {
   };
 
   //Create a random pokemon array with length of the random number
-  //Pokemon are pulled from spooky pokemon
-  const genRandomPokemonArray = (spookyPokemon) => {
+  //Pokemon are pulled from forest pokemon
+  const genRandomPokemonArray = (currentRegionPokemon) => {
     const randNum = randomNumber();
     const randomPokemonArray = [];
     // get random item
     for (var i = 0; i <= randNum; i++) {
-      const randomIndex = Math.floor(Math.random() * spookyPokemon.length);
-      randomPokemonArray.push(spookyPokemon[randomIndex]);
+      const randomIndex = Math.floor(
+        Math.random() * currentRegionPokemon.length
+      );
+      randomPokemonArray.push(currentRegionPokemon[randomIndex]);
     }
     return randomPokemonArray;
   };
 
-  const randPokemonArray = genRandomPokemonArray(sortedPokemon.spooky); //
+  // forest => CurrentRegion
+  // usePram => 3000/{forest} => CurrentRegion
+  const randPokemonArray = genRandomPokemonArray(sortedPokemon[currentRegion]); //
   // [50] => [5]
   // [23] <= [5]
   // makediv => empy24 => [emp, index,emp, index]
@@ -59,7 +65,10 @@ const SpookyRegion = () => {
   };
 
   return (
-    <div className="body bg-spooky" data-testid="background-spooky">
+    <div
+      className={`body bg-${currentRegion}`}
+      data-testid={`background-${currentRegion}`}
+    >
       <div className="row">
         <div className="base-grid">
           {[...insertRandomPokemon(makediv, randPokemonArray)].map(
@@ -90,7 +99,10 @@ const SpookyRegion = () => {
           )}
         </div>
         <div className="text-center">
-          <PokeDexButton className="pokedex-button" locationName="spooky" />
+          <PokeDexButton
+            className="pokedex-button"
+            locationName={currentRegion}
+          />
         </div>
       </div>
       <div className="locations-box">
@@ -99,4 +111,4 @@ const SpookyRegion = () => {
     </div>
   );
 };
-export { SpookyRegion };
+export { RegionHandler };

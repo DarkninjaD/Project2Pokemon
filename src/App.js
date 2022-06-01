@@ -3,15 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { PokeContext } from "./components/PokeContext";
 import { Pokedex } from "./components/Pokedex/Pokedex";
 import { LandingPage } from "./components/LandingPage/LandingPage";
-import { ForestRegion } from "./components/ForestRegion/ForestRegion";
-import { RockRegion } from "./components/RockRegion/RockRegion";
-import { SpookyRegion } from "./components/SpookyRegion/SpookeyRegion";
-import { TownRegion } from "./components/TownRegion/TownRegion";
-import { VolcanoRegion } from "./components/VolcanoRegion/VolcanoRegion";
-import { WaterRegion } from "./components/WaterRegion/WaterRegion";
-import { GymRegion } from "./components/GymRegion/GymRegion";
-
-import { LocationDisplay } from "./components/LocationDisplay/LocationDisplay";
+import { RegionHandler } from "./components/RegionHandler/RegionHandler";
 import "./App.css";
 
 //url: https://pokeapi.co/api/v2/pokemon/?limit=151
@@ -128,21 +120,9 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage isLoading={isLoading} />} />
-          <Route path="/rock" element={<RockRegion />} />
-          <Route path="/forest" element={<ForestRegion />} />
-          <Route path="/spooky" element={<SpookyRegion />} />
-          <Route path="/town" element={<TownRegion />} />
-          <Route path="/volcano" element={<VolcanoRegion />} />
-          <Route path="/water" element={<WaterRegion />} />
-          <Route path="/gym" element={<GymRegion />} />
-          <Route path = '/pokedex' element = {<Pokedex pokemonList={pokemon}/>} />
-          <Route
-            path="/location/:name"
-            element={<LocationDisplay isLoading={isLoading} />}
-          />
+          <Route path="/pokedex" element={<Pokedex pokemonList={pokemon} />} />
+          <Route path="/:name" element={<RegionHandler />} />
           <Route path="/*" element={<LandingPage isLoading={isLoading} />} />
-          {/* <Route path = '/location/:name' element={<{className'Region'}/>} regionPokemon={sortedPokemon[{}]}/>}/> */}
-          {/* <Route path = '/location/:name' element={<{}} regionPokemon={sortedPokemon[{}]}/>}/> */}
         </Routes>
       </Router>
     </PokeContext.Provider>

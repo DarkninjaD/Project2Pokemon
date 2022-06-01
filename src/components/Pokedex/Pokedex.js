@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { PokemonThumbnail } from "../PokemonThumbnail/PokemonThumbnail";
-import { useNavigate, useLocation } from 'react-router-dom'
-import { PokeContext } from "../PokeContext"
+import { useLocation } from "react-router-dom";
 import "./Pokedex.css";
 
 const Pokedex = ({ pokemonList }) => {
   const [viewPokemon, setViewPokemon] = useState([]);
+  console.log(viewPokemon);
   const location = useLocation();
-  const navigate = useNavigate();
   let lastLocation = location.state.lastLocation;
-  if (lastLocation === undefined) {lastLocation='forest'}
+  if (lastLocation === undefined) {
+    lastLocation = "forest";
+  }
 
   return (
     <>
@@ -25,16 +26,17 @@ const Pokedex = ({ pokemonList }) => {
           {pokemonList.map((pokemon) => {
             return (
               <PokemonThumbnail
-              key={pokemon.name}
-              pokemon={pokemon}
-              setViewPokemon={setViewPokemon}
+                key={pokemon.name}
+                pokemon={pokemon}
+                setViewPokemon={setViewPokemon}
               />
-              );
-            })};
+            );
+          })}
+          ;
         </div>
       </div>
     </>
-  )
+  );
 };
 
 export { Pokedex };
