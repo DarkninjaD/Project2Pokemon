@@ -105,7 +105,7 @@ const RegionHandler = () => {
           />
         </div>
       </div>
-      <div className="locations-box">
+      <div className="locations-box" data-testid="locations">
         <NavBar />
       </div>
     </div>
