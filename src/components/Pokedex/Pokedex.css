@@ -1,9 +1,8 @@
 .pokedex-container {
   position: absolute;
   text-align: center;
-  width: 90vw;
-  height: 90vh;
-
+  min-width: 72vw;
+  min-height: 70vh;
   background-color: #282c34;
   border-style: solid;
   border-color: #1f2125;
@@ -47,4 +46,28 @@
   padding: 0px;
   font-size: 36px;
   color: white;
+}
+
+.debug{
+  position: absolute;
+  background-color: #1f2125;
+  border-style: solid;
+  border-color: #1f2125;
+  border-radius: 15px 15px 15px 15px;
+  color: white;
+  left: 20%;
+  top: 60px;
+  height: 50px;
+}
+
+.back-to-catching-those-pokemon{
+  position: absolute;
+  background-color: #1f2125;
+  border-style: solid;
+  border-color: #1f2125;
+  border-radius: 15px 15px 15px 15px;
+  color: white;
+  right: 20%;
+  top: 60px;
+  height: 50px;
 }
