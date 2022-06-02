@@ -54,8 +54,7 @@ const LocationDisplay = ({ isLoading }) => {
 
   return (
     <>
-      <div className="base-grid">
-      </div>
+      <div className="base-grid"></div>
       <img
         className="background"
         src={`/assets/${locationName}-bg.png`}

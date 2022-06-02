@@ -36,11 +36,32 @@ img {
 
 /* //TODO - find a better fix */
 /* body {
-  background-image: url(/assets/rock-bg.png);
+  background-image: url(/assets/forest-bg.png);
 } */
+.bg-forest {
+  background-image: url(/assets/forest-bg.svg);
+}
+.bg-gym {
+  background-image: url(/assets/gym-bg.png);
+}
+.bg-spooky {
+  background-image: url(/assets/spooky-bg.png);
+}
+.bg-rock {
+  background-image: url(/assets/rock-bg.png);
+}
+
+.bg-volcano {
+  background-image: url(/assets/volcano-bg.png);
+}
+.bg-water {
+  background-image: url(/assets/water-bg.png);
+}
+
 .bg-town {
   background-image: url(/assets/town-bg.svg);
 }
+
 .body {
   display: flex;
   height: 100vh;

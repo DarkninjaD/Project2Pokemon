@@ -3,12 +3,14 @@
 import { PokeDexButton } from "../ToolBar/PokeDexButton";
 import { PokeContext } from "../PokeContext";
 
-import "./TownRegion.css";
+import "./RegionHandler.css";
 import NavBar from "../NavBar/NavBar.js";
 import React, { useContext } from "react";
+import { useParams } from "react-router-dom";
 
-const TownRegion = () => {
+const RegionHandler = () => {
   const { pokemon, sortedPokemon, setPokemon } = useContext(PokeContext);
+  const currentRegion = useParams().name;
 
   const randomNumber = () => {
     // 3 to 5 random positions on page?
@@ -16,19 +18,23 @@ const TownRegion = () => {
   };
 
   //Create a random pokemon array with length of the random number
-  //Pokemon are pulled from town pokemon
-  const genRandomPokemonArray = (townPokemon) => {
+  //Pokemon are pulled from forest pokemon
+  const genRandomPokemonArray = (currentRegionPokemon) => {
     const randNum = randomNumber();
     const randomPokemonArray = [];
     // get random item
     for (var i = 0; i <= randNum; i++) {
-      const randomIndex = Math.floor(Math.random() * townPokemon.length);
-      randomPokemonArray.push(townPokemon[randomIndex]);
+      const randomIndex = Math.floor(
+        Math.random() * currentRegionPokemon.length
+      );
+      randomPokemonArray.push(currentRegionPokemon[randomIndex]);
     }
     return randomPokemonArray;
   };
 
-  const randPokemonArray = genRandomPokemonArray(sortedPokemon.town); //
+  // forest => CurrentRegion
+  // usePram => 3000/{forest} => CurrentRegion
+  const randPokemonArray = genRandomPokemonArray(sortedPokemon[currentRegion]); //
   // [50] => [5]
   // [23] <= [5]
   // makediv => empy24 => [emp, index,emp, index]
@@ -59,7 +65,10 @@ const TownRegion = () => {
   };
 
   return (
-    <div className="body bg-town" data-testid="background-town">
+    <div
+      className={`body bg-${currentRegion}`}
+      data-testid={`background-${currentRegion}`}
+    >
       <div className="row">
         <div className="base-grid">
           {[...insertRandomPokemon(makediv, randPokemonArray)].map(
@@ -90,13 +99,16 @@ const TownRegion = () => {
           )}
         </div>
         <div className="text-center">
-          <PokeDexButton className="pokedex-button" />
+          <PokeDexButton
+            className="pokedex-button"
+            locationName={currentRegion}
+          />
         </div>
       </div>
-      <div className="locations-box">
+      <div className="locations-box" data-testid="locations">
         <NavBar />
       </div>
     </div>
   );
 };
-export { TownRegion };
+export { RegionHandler };

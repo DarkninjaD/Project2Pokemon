@@ -1,14 +1,13 @@
 import React, { useState, useContext } from "react";
 import { PokemonThumbnail } from "../PokemonThumbnail/PokemonThumbnail";
-import { useNavigate, useLocation } from 'react-router-dom'
-import { PokeContext } from "../PokeContext"
+import { useLocation } from "react-router-dom";
 import "./Pokedex.css";
 
 const Pokedex = ({ pokemonList }) => {
   const { pokemon, setPokemon } = useContext(PokeContext);
   const [viewPokemon, setViewPokemon] = useState([]);
+  console.log(viewPokemon);
   const location = useLocation();
-  const navigate = useNavigate();
   let lastLocation = location.state.lastLocation;
   if (lastLocation === undefined) { lastLocation = 'forest' }
 
@@ -46,7 +45,7 @@ const Pokedex = ({ pokemonList }) => {
         </div>
       </div>
     </>
-  )
+  );
 };
 
 export { Pokedex };
