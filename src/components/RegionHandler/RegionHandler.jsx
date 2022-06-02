@@ -8,6 +8,11 @@ import NavBar from "../NavBar/NavBar.js";
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 
+
+// const exportFunctions = {
+//   randomNumber,
+// };
+
 const RegionHandler = () => {
   const { pokemon, sortedPokemon, setPokemon } = useContext(PokeContext);
   const currentRegion = useParams().name;
@@ -74,12 +79,13 @@ const RegionHandler = () => {
           {[...insertRandomPokemon(makediv, randPokemonArray)].map(
             (elm, index) => {
               return (
-                <div className="gridContainer" key={index}>
-                  {elm !== undefined ? (
+              <div className="gridContainer" key={index}>
+                {elm !== undefined ? (
                     <img
                       id={elm.name}
                       src={elm.sprites.front_default}
                       alt="temp"
+                      className="animations"
                       onClick={(event) => {
                         event.preventDefault();
                         clickHandler(event.target);
@@ -89,16 +95,17 @@ const RegionHandler = () => {
                         right: `${Math.floor(Math.random() * 100)}px`,
                         bottom: `${Math.floor(Math.random() * 100)}px`,
                       }}
-                    />
+                      />
                   ) : (
                     <></>
                   )}
-                </div>
+              </div>
+
               );
             }
           )}
         </div>
-        <div className="text-center">
+        <div className="pokedex-button-container">
           <PokeDexButton
             className="pokedex-button"
             locationName={currentRegion}
@@ -108,7 +115,13 @@ const RegionHandler = () => {
       <div className="locations-box" data-testid="locations">
         <NavBar />
       </div>
+      <img
+        className="background"
+        src={`/assets/${currentRegion}-bg.png`}
+        alt={`background-${currentRegion}`}
+      />
     </div>
   );
 };
 export { RegionHandler };
+// export default exportFunctions;

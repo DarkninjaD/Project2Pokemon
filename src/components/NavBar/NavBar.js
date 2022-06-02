@@ -4,61 +4,30 @@ import "./NavBar.css";
 
 const NavBar = () => {
   return (
-    <div className="navigation">
-      <ul className="nav-list">
-        <li>
-          <Link
-            className="forest"
-            to="/forest"
-            style={{ textDecoration: "none" }}
-          >
-            Forest Region
-          </Link>
-        </li>
-        <li>
-          <Link className="town" to="/town" style={{ textDecoration: "none" }}>
-            Town Region
-          </Link>
-        </li>
-        <li>
-          <Link
-            className="water"
-            to="/water"
-            style={{ textDecoration: "none" }}
-          >
-            Water Region
-          </Link>
-        </li>
-        <li>
-          <Link className="rock" to="/rock" style={{ textDecoration: "none" }}>
-            Rock Region
-          </Link>
-        </li>
-        <li>
-          <Link className="gym" to="/gym" style={{ textDecoration: "none" }}>
-            The Gym
-          </Link>
-        </li>
-        <li>
-          <Link
-            className="spooky"
-            to="/spooky"
-            style={{ textDecoration: "none" }}
-          >
-            Spooky Region
-          </Link>
-        </li>
-        <li>
-          <Link
-            className="volcano"
-            to="/volcano"
-            style={{ textDecoration: "none" }}
-          >
-            Volcano Region
-          </Link>
-        </li>
-      </ul>
-    </div>
+
+      <div className="container" data-testid="navBarTest">
+        <Link to="/forest" style={{ textDecoration: "none" }}>
+          <button className="btn btn-forest">Forest Region</button>
+        </Link>
+        <Link to="/town" style={{ textDecoration: "none" }}>
+          <button className="btn btn-town">Town Region</button>
+        </Link>
+        <Link to="/water" style={{ textDecoration: "none" }}>
+          <button className="btn btn-water">Water Region</button>
+        </Link>
+        <Link to="/rock" style={{ textDecoration: "none" }}>
+          <button className="btn btn-rock">Rock Region</button>
+        </Link>
+        <Link to="/gym" style={{ textDecoration: "none" }}>
+          <button className="btn btn-gym">The Gym</button>
+        </Link>
+        <Link to="/spooky" style={{ textDecoration: "none" }}>
+          <button className="btn btn-spooky">Spooky Region</button>
+        </Link>
+        <Link to="/volcano" style={{ textDecoration: "none" }}>
+          <button className="btn btn-volcano">Volcano Region</button>
+        </Link>
+      </div>
   );
 };
 

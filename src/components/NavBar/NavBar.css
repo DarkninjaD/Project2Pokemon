@@ -1,31 +1,58 @@
-.navigation {
-  position: relative;
-  background-color: beige;
-  /* height: 90%; */
-  /* width: 12%; */
-  border: 5px solid black;
-  border-radius: 15px;
-  margin: 10px;
-}
-
-li {
-  color: black;
-  textdecoration: "none";
-}
-
-a {
-  color: black;
-}
-
-li:hover {
-  transform: scale(1.1);
-}
-
-ul {
-  list-style: none;
-  font-family: Helvetica;
+.container {
   display: flex;
-  flex-direction: column;
-  padding-left: 30px;
-  padding-right: 30px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 80vw;
+  margin: 0 auto;
+  min-height: 100vh;
 }
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px rgb(31, 31, 31);
+  border-radius: 10px;
+  width: 20vh;
+  height: 7vh;
+  text-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+ }
+
+.btn:hover {
+  background-position: right center;
+}
+
+.btn-forest {
+  background-image: linear-gradient(to right, rgb(18, 167, 7) 0%, rgb(5, 117, 10) 75%, rgb(3, 80, 1) 100%);
+}
+
+.btn-town {
+  background-image: linear-gradient(to right, rgb(231, 231, 231) 0%, rgb(173, 173, 173) 35%, rgb(129, 129, 129) 100%);
+}
+
+.btn-water {
+  background-image: linear-gradient(to right, rgb(53, 150, 196) 0%, rgb(33, 103, 136) 75%, rgb(21, 69, 92) 100%);
+}
+
+.btn-rock {
+  background-image: linear-gradient(to right, rgba(196,166,75,1) 0%, rgba(158,134,61,1) 75%, rgba(107,90,41,1) 100%);
+}
+
+.btn-gym {
+  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 51%, #ffecd2 100%);
+}
+
+.btn-spooky {
+  background-image: linear-gradient(to right, rgba(144,48,148,1) 0%, rgba(107,36,110,1) 35%, rgba(57,19,59,1) 100%);
+}
+
+.btn-volcano {
+  background-image: linear-gradient(to right, rgba(255,124,0,1) 0%, rgba(201,76,9,1) 75%, rgb(136, 33, 33) 100%);
+}
+

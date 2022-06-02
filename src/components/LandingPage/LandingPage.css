@@ -1,23 +1,109 @@
 .background {
   position: absolute;
-  min-width: 100vw;
-  min-height: 100vh;
+  min-width: 99vw;
+  min-height: 99vh;
   z-index: -1;
 }
 
-.logo {
-  display: flex;
-  justify-content: center;
-  height: 250px;
-  width: 600px;
+.logo-container{
+  position: absolute;
+  left: 50%;
+  bottom: 30vh;
+  transform: translate(-50%, -50%);
+  background-color: #22262e;
+  border-style: solid;
+  border-color: #22262e;
+  border-radius: 15px 15px 15px 15px;
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+  height: 35vh;
+  width: 80vh;
+  box-shadow: 3px 2px 10px 1px rgba(0, 0, 0, 1);
 }
 
-.enter-button {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: 80px;
+.logo-text{
+  position: absolute;
+  font-size: 132px;
+  font-weight: 1000;
+  left: 50%;
+  top: 55%;
+  width: 80%;
+  transform: translate(-50%, 0%);
+  text-align: center;
+  margin: auto;
+  color: #ffcc01;
+  -webkit-text-stroke: 6px #3264b0;
+  /* font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-shadow: 10px 10px 5px #0d0f12, 10px 10px 5px #0d0f12, 10px 10px 5px #0d0f12, 10px 10px 5px #0d0f12;
+}
+
+.logo {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 225px;
+  width: 675px;
+  z-index: -1;
+}
+
+.logo-shadow {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 245px;
+  width: 690px;
+  z-index: -2;
+}
+
+.silhouette {
+  -webkit-filter: grayscale(100%) brightness(0);
+  filter: grayscale(100%) brightness(0);
+  opacity: 0.6;
+}
+
+.button-container{
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translate(-50%, -50%);
+}
+
+
+.enter-button{
+  background-color: #22262e;
+  border-style: solid;
+  border-color: #22262e;
+  border-radius: 15px 15px 15px 15px;
+  font-size: 48px;
+  font-weight: 600;
+  color: white;
+  height: 100px;
   width: 300px;
+  box-shadow: 3px 2px 10px 1px rgba(0, 0, 0, 1);
+  text-shadow: 5px 5px 5px #0d0f12;
+}
+
+.enter-button:hover{
+  background-color: #272c36;
+  border-color: #272c36;;
+  transform: scale(1.1);
+}
+
+.enter-button:active{
+  transform: scale(0.98);
+  box-shadow: 3px 2px 10px 4px rgba(0, 0, 0, 1);
+}
+
+.enter-button:disabled{
+  background-color: #d0d4db;
+  border-color: #d0d4db;
+  font-size: 14px;
+  color: black;
+  text-shadow: 0px 0px 0px #0d0f12;
 }
 
 .loading-button {

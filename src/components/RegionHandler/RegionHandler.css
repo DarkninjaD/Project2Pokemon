@@ -13,8 +13,12 @@ img {
 }
 
 .background {
-  max-width: 100%;
-  max-height: 100%;
+  position: absolute;
+  min-width: 100vw;
+  min-height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  z-index: -1;
 }
 
 .row {
@@ -22,10 +26,27 @@ img {
   width: 95vw;
 }
 
+.pokedex-button-container{
+  position: relative;
+  bottom: -4%;
+  left: 50%;
+  transform: translate(-45%, 0%);
+}
+
 .pokedex-button {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  height: 70px;
+  width: 90vw;
+  background-color: #282c34;
+  border-style: solid;
+  border-color: #1f2125;
+  padding: 0px;
+  font-size: 44px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 5px 5px 5px #0d0f12, 5px 5px 5px #0d0f12, 5px 5px 5px #0d0f12, 5px 5px 5px #0d0f12;
 }
 
 .locations-box {
@@ -38,29 +59,6 @@ img {
 /* body {
   background-image: url(/assets/forest-bg.png);
 } */
-.bg-forest {
-  background-image: url(/assets/forest-bg.svg);
-}
-.bg-gym {
-  background-image: url(/assets/gym-bg.png);
-}
-.bg-spooky {
-  background-image: url(/assets/spooky-bg.png);
-}
-.bg-rock {
-  background-image: url(/assets/rock-bg.png);
-}
-
-.bg-volcano {
-  background-image: url(/assets/volcano-bg.png);
-}
-.bg-water {
-  background-image: url(/assets/water-bg.png);
-}
-
-.bg-town {
-  background-image: url(/assets/town-bg.svg);
-}
 
 .body {
   display: flex;
@@ -75,3 +73,109 @@ img {
 .text-center {
   text-align: center;
 }
+
+/* .animations:nth-of-type(1n) {
+  animation: move 5s infinite;
+} */
+
+.gridContainer:nth-of-type(odd){
+  /* -webkit-animation-name: move, breath;
+  -webkit-animation-duration: 10s, 2s;
+  -webkit-animation: infinite; */
+  animation:  move 10s infinite, breath 2s infinite;
+}
+
+.gridContainer:nth-child(even){
+  animation:  move 2s infinite;
+}
+
+.gridContainer:hover {
+  animation: myAnim 2s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnim {
+	0%,
+	100% {
+		transform: rotate(0deg);
+		transform-origin: 50% 50%;
+	}
+
+	10% {
+		transform: rotate(8deg);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: rotate(-10deg);
+	}
+
+	30%,
+	50%,
+	70% {
+		transform: rotate(10deg);
+	}
+
+	80% {
+		transform: rotate(-8deg);
+	}
+
+	90% {
+		transform: rotate(8deg);
+	}
+}
+
+@keyframes breath {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.1);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+
+@keyframes move{
+  0% {
+    transform:  translateX(10px) rotateY(180deg) scale(1);
+  }
+  15%{
+    transform: scale(1.15);
+  }
+  25% {
+    transform: translateX(50px) rotateY(0deg) scale(1);
+  }
+  50% {
+    transform: translateX(50px) rotateY(0deg) scale(1.15);
+  }
+  75% {
+    transform:  translateX(50px) rotateY(0deg) scale(1);
+  }
+  100% {
+    transform:  translateX(10px) rotateY(180deg) scale(1)
+  }
+}
+
+
+/* @keyframes move{
+  0% {
+    transform: translateX(10px) rotateY(180deg) scale(1);
+  }
+  25% {
+    transform: scale(1.15);
+  }
+  49% {
+    transform: translateX(50px) rotateY(0deg) ;
+  }
+  60% {
+    transform: translateX(50px) rotateY(0deg) scale(1);
+  }
+  100% {
+    transform: translateX(10px) rotateY(180deg) scale(1.15)
+  }
+} */
