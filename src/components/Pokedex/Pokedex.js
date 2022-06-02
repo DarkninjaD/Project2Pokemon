@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { PokemonThumbnail } from "../PokemonThumbnail/PokemonThumbnail";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { PokeContext } from "../PokeContext";
 import "./Pokedex.css";
 
 const Pokedex = ({ pokemonList }) => {
@@ -10,7 +11,7 @@ const Pokedex = ({ pokemonList }) => {
   const location = useLocation();
   let lastLocation = location.state.lastLocation;
   if (lastLocation === undefined) { lastLocation = 'forest' }
-
+  let navigate = useNavigate();
   const giveMeAllOfThosePokemon = () => {
     let temp = pokemon
     temp.forEach(element => {
