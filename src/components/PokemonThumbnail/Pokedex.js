@@ -3,6 +3,7 @@ import { PokemonThumbnail } from "../PokemonThumbnail/PokemonThumbnail";
 import { useNavigate, useLocation } from "react-router-dom";
 import { PokeContext } from "../PokeContext";
 import "./Pokedex.css";
+import ODDCHAMP from "../PokemonThumbnail/ODDCHAMP"
 
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);

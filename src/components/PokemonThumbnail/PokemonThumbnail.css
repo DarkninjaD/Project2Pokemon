@@ -157,8 +157,7 @@
   font-weight: bold;
   overflow-x: scroll;
   text-align: left;
-  padding-left: 1vw;
-  padding-right: 1vw;
+  left: 6%;
   padding-bottom: 1vh;
 }
 
@@ -182,7 +181,6 @@
 
 .stat-table{
   position: absolute;
-  left: 6%;
   bottom: 10%;
   outline: 0px solid gray !important;
   border-width: 2px !important;
