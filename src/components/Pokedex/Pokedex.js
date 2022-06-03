@@ -23,7 +23,7 @@ const Pokedex = ({ pokemonList }) => {
       element.isCaught = true;
     })
     setPokemon(temp);
-    setTemp()
+    setTemp('all')
   }
 
   const iDontWantThosePokemon = () => {
@@ -32,7 +32,7 @@ const Pokedex = ({ pokemonList }) => {
       element.isCaught = false;
     })
     setPokemon(temp);
-    setTemp()
+    setTemp('none')
   }
 
   return (
