@@ -26,6 +26,15 @@ const Pokedex = ({ pokemonList }) => {
     setTemp()
   }
 
+  const iDontWantThosePokemon = () => {
+    let temp = pokemon
+    temp.forEach(element => {
+      element.isCaught = false;
+    })
+    setPokemon(temp);
+    setTemp()
+  }
+
   return (
     <>
       <img
@@ -36,6 +45,7 @@ const Pokedex = ({ pokemonList }) => {
       <div className="pokedex-container" data-testid = "pokedex-container">
         <div className="pokedex-navbar">
           <button className="debug" onClick={() => { giveMeAllOfThosePokemon() }}>Debug</button>
+          <button className="debug release" onClick={() => { iDontWantThosePokemon() }}>Release All</button>
           <button className={`back-to-catching-those-pokemon ${lastLocation}-region`} onClick={() => { navigate(-1) }}>Back to the {`${capitalize(lastLocation)} Region`}</button>
           <h4 className="pokedex-header">Pokedex</h4>
         </div>

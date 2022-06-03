@@ -27,26 +27,26 @@ const PokemonThumbnail = ({ pokemon }) => {
               />
 
             </div>
-            <div className={`pokemon-thumbnail-back ${pokemon.types[0].type.name}`} /*flip-card-back*/ data-testid="back">
-              <p className={`pokemon-id ${pokemon.types[0].type.name}`}>#{pokemon.id}</p>
-              <p className={`pokemon-name-back`}> {capitalize(pokemon.name)} </p>
+            <div className={`pokemon-thumbnail-back ${pokemon.name === "machamp" ? "ODDCHAMP" : pokemon.types[0].type.name}`} /*flip-card-back*/ data-testid="back">
+              <p className={`pokemon-id ${pokemon.name === "machamp" ? "ODDCHAMP" : pokemon.types[0].type.name}`}>#{pokemon.id}</p>
+              <p className={`pokemon-name-back`}>{pokemon.name==="machamp" ? "ODDCHAMP" : capitalize(pokemon.name)}</p>
               <img
                 id={pokemon.name}
-                className="pkmnImage-back-shadow silhouette"
+                className={`pkmnImage-back-shadow silhouette ${pokemon.name==="machamp" ? "shake" : ""}`}
                 src={pokemon.name==="machamp" ? "/assets/oddchamp.png" : pokemon.sprites.front_default}
                 alt="Pokemon"
               />
               <img
                 id={pokemon.name}
-                className="pkmnImage-back"
+                className={`pkmnImage-back ${pokemon.name==="machamp" ? "shake" : ""}`}
                 src={pokemon.name==="machamp" ? "/assets/oddchamp.png" : pokemon.sprites.front_default}
                 alt="Pokemon"
               />
-              <div className="pokemon-details">
+              <div className={`pokemon-details`}>
                 <div className="type-container">
                   {pokemon.types.length === 1 ? "Type:" : "Types:"}
                   {pokemon.types.map((element) => {
-                    return <img src={`./assets/types/${element.type.name}-type.png`}
+                    return <img src={`./assets/types/${pokemon.name === "machamp" ? "big" : element.type.name}-type.png`}
                                 id={element.type.name}
                                 alt={`${element.type.name} type`}
                                 key={`${element.type.name} type`}
@@ -54,8 +54,8 @@ const PokemonThumbnail = ({ pokemon }) => {
                             />
                   })}
                 </div>
-                <div className="pokemon-detail-entry">Height: {Math.round(pokemon.height * 3.93701)} in.</div>
-                <div className="pokemon-detail-entry">Weight: {Math.round(pokemon.weight * 0.220462)} lbs</div>
+                <div className="pokemon-detail-entry">Height: {pokemon.name==="machamp" ? "LARGE" : Math.round(pokemon.height * 3.93701) + " in."} </div>
+                <div className="pokemon-detail-entry">Weight: {pokemon.name==="machamp" ? "HEAVY" : Math.round(pokemon.weight * 0.220462) + " lbs"}</div>
                 <table className={`stat-table ${pokemon.types[0].type.name}`}>
                   <thead className={`stat-table-header ${pokemon.types[0].type.name}`}><tr><td>Base Stats</td></tr></thead>
                   <tbody>
@@ -80,7 +80,8 @@ const PokemonThumbnail = ({ pokemon }) => {
                       }
                       return <tr key={stat.stat.name} className={`stat-table-row`}>
                           <td className={`stat-table-cell ${pokemon.types[0].type.name}`}>{statName}</td>
-                          <td className={`stat-table-cell ${pokemon.types[0].type.name}`}>{stat.base_stat}</td>
+                          <td className={`stat-table-cell ${pokemon.types[0].type.name}`}>
+                            {pokemon.name==="machamp" ? 999 : stat.base_stat}</td>
                         </tr>
                     })}
                   </tbody>
