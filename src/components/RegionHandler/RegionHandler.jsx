@@ -8,7 +8,6 @@ import NavBar from "../NavBar/NavBar.js";
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 
-
 // const exportFunctions = {
 //   randomNumber,
 // };
@@ -59,7 +58,6 @@ const RegionHandler = () => {
   };
 
   const clickHandler = (e) => {
-    //tempPokemon is current pokemon, find in the pokemon array
     let tempArray = JSON.parse(JSON.stringify(pokemon));
     tempArray.forEach((object) => {
       if (object.name === e.id) {
@@ -79,8 +77,8 @@ const RegionHandler = () => {
           {[...insertRandomPokemon(makediv, randPokemonArray)].map(
             (elm, index) => {
               return (
-              <div className="gridContainer" key={index}>
-                {elm !== undefined ? (
+                <div className="gridContainer" key={index}>
+                  {elm !== undefined ? (
                     <img
                       id={elm.name}
                       src={elm.sprites.front_default}
@@ -95,12 +93,11 @@ const RegionHandler = () => {
                         right: `${Math.floor(Math.random() * 100)}px`,
                         bottom: `${Math.floor(Math.random() * 100)}px`,
                       }}
-                      />
+                    />
                   ) : (
                     <></>
                   )}
-              </div>
-
+                </div>
               );
             }
           )}

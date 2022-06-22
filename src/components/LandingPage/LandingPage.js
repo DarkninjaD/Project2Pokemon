@@ -1,16 +1,16 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./LandingPage.css";
 import { motion, AnimatePresence } from "framer-motion/dist/es/index";
 // import BackgroundImage from "../../assets/field.png";
 // import ForestBackground from '../../assets/Forest-Background.svg'
 import Pokemon_logo from "../../assets/Pokemon-Logo.png";
 import { useNavigate } from "react-router-dom";
-import Modal from "../Model-Framer/Modal"
+import Modal from "../Model-Framer/Modal";
 
 const LandingPage = ({ isLoading }) => {
   const navigate = useNavigate();
 
-  const [testthing, settestThing] = useState(false)
+  const [testthing, settestThing] = useState(false);
 
   return (
     <>
@@ -21,20 +21,28 @@ const LandingPage = ({ isLoading }) => {
       />
       <div className="logo-container">
         <p className="logo-text">HUNT</p>
-        <img
-          className="logo"
-          src={Pokemon_logo}
-          alt="Pokémon Logo"
-        />
+        <img className="logo" src={Pokemon_logo} alt="Pokémon Logo" />
         <img
           className="logo-shadow silhouette"
           src={Pokemon_logo}
           alt="Pokémon Logo Shadow"
         />
       </div>
-      <motion.button whileHover={{scale: 1.1}} whileTap={{scale: .9}} onClick={()=> settestThing(true)} hidden> Test button please don't click me unless you </motion.button>
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={() => settestThing(true)}
+      >
+        {" "}
+        Test button please don't click me unless you{" "}
+      </motion.button>
       <AnimatePresence>
-      {testthing && <Modal modalOpen={testthing} handleClose={() => settestThing(false)} />}
+        {testthing && (
+          <Modal
+            modalOpen={testthing}
+            handleClose={() => settestThing(false)}
+          />
+        )}
       </AnimatePresence>
       <div className="button-container">
         {isLoading ? (
@@ -43,13 +51,15 @@ const LandingPage = ({ isLoading }) => {
           </button>
         ) : (
           <>
-            <button
+            <motion.button
               className="enter-button"
               data-testid="enter button"
               onClick={() => navigate("/forest")}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             >
               ENTER
-            </button>
+            </motion.button>
           </>
         )}
       </div>
